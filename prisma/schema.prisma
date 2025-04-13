@@ -29,7 +29,7 @@ model Bet {
   wonStatus     WON_STATUS
   createdAt     DateTime   @default(now())
   betAmount     Decimal
-  resultAmount  Decimal
+  resultAmount  Decimal    @default(0)
 }
 
 enum WON_STATUS {
