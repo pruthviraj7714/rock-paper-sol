@@ -1,7 +1,7 @@
 "use client";
 
 import { useWallet } from "@solana/wallet-adapter-react";
-import { Coins, CoinsIcon } from "lucide-react";
+import { Coins } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { Button } from "./ui/button";
 

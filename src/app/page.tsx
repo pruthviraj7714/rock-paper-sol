@@ -41,7 +41,7 @@ export default function LandingPage() {
                   Start Playing
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="border-yellow-500 text-yellow-500 hover:bg-yellow-500/10">
+              <Button size="lg" variant="outline" className="border-yellow-500 text-yellow-500 hover:text-white hover:bg-yellow-500/10">
                 Learn More
               </Button>
             </div>

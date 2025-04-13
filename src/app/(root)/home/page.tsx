@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, Coins } from "lucide-react";
+import { Coins } from "lucide-react";
+import RecentBets from "@/components/RecentBets";
 
 export default function HomePage() {
   const betOptions = [0.1, 0.2, 0.5, 1, 2, 5];
@@ -19,75 +20,29 @@ export default function HomePage() {
           </p>
           <div className="grid grid-cols-2 gap-6 md:grid-cols-2 lg:grid-cols-3 mx-7">
             {betOptions.map((amount) => (
-              <Link href={`/game?bet=${amount}`} key={amount}>
-                <Card className="bg-gray-800 w-[330px] transition-all hover:scale-105 hover:bg-gray-700">
-                  <CardContent className="flex flex-col items-center justify-center p-6">
-                    <p className="mb-2 text-2xl font-bold text-yellow-500">
-                      {amount} SOL
-                    </p>
-                    <p className="text-sm text-gray-300">
-                      Win {amount * 2} SOL
-                    </p>
-                    <Button className="mt-4 w-full bg-yellow-500 hover:bg-yellow-600">
-                      Select
-                    </Button>
-                  </CardContent>
-                </Card>
-              </Link>
+            <Link href={`/game?bet=${amount}`} key={amount}>
+            <Card className="w-[330px] bg-gradient-to-br from-gray-800 to-gray-900 shadow-xl rounded-2xl border border-gray-700 hover:scale-105 hover:shadow-2xl hover:from-gray-700 hover:to-gray-800 transition-all duration-300 ease-in-out">
+              <CardContent className="flex flex-col items-center justify-center p-6">
+                <p className="mb-2 text-3xl font-extrabold text-yellow-400 drop-shadow-md">
+                  {amount} SOL
+                </p>
+                <p className="text-sm text-gray-400">
+                  Win <span className="text-green-400 font-semibold">{amount * 2} SOL</span>
+                </p>
+                <Button className="mt-6 cursor-pointer w-full bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-md shadow hover:shadow-lg transition">
+                  Select
+                </Button>
+              </CardContent>
+            </Card>
+          </Link>
+          
             ))}
           </div>
         </section>
-
-        <section className="py-12">
-          <h2 className="mb-8 text-center text-3xl font-bold md:text-4xl">
-            Recent Games
-          </h2>
-          <div className="overflow-hidden rounded-lg border border-gray-700">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-gray-800">
-                  <tr>
-                    <th className="px-4 py-3 text-left font-medium">Player</th>
-                    <th className="px-4 py-3 text-left font-medium">
-                      Bet Amount
-                    </th>
-                    <th className="px-4 py-3 text-left font-medium">Result</th>
-                    <th className="px-4 py-3 text-left font-medium">Payout</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-700">
-                  <tr className="bg-gray-800/50">
-                    <td className="px-4 py-3">Player1</td>
-                    <td className="px-4 py-3">0.5 SOL</td>
-                    <td className="px-4 py-3 text-green-500">Win</td>
-                    <td className="px-4 py-3">1.0 SOL</td>
-                  </tr>
-                  <tr className="bg-gray-800/30">
-                    <td className="px-4 py-3">Player2</td>
-                    <td className="px-4 py-3">1.0 SOL</td>
-                    <td className="px-4 py-3 text-red-500">Loss</td>
-                    <td className="px-4 py-3">0 SOL</td>
-                  </tr>
-                  <tr className="bg-gray-800/50">
-                    <td className="px-4 py-3">Player3</td>
-                    <td className="px-4 py-3">2.0 SOL</td>
-                    <td className="px-4 py-3 text-green-500">Win</td>
-                    <td className="px-4 py-3">4.0 SOL</td>
-                  </tr>
-                  <tr className="bg-gray-800/30">
-                    <td className="px-4 py-3">Player4</td>
-                    <td className="px-4 py-3">0.2 SOL</td>
-                    <td className="px-4 py-3 text-red-500">Loss</td>
-                    <td className="px-4 py-3">0 SOL</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
+        <RecentBets />
       </div>
 
-      <footer className="mt-auto border-t border-gray-800 bg-gray-900 py-8">
+      <footer className="mt-auto border-t bg-gray-950/80 backdrop-blur-md text-white border-gray-800 py-8">
         <div className="">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <div className="flex items-center gap-2">

@@ -33,7 +33,7 @@ export default function ConnectWalletPage() {
   }, [connected]);
 
   return (
-    <main className="flex items-center justify-center min-h-screen bg-gradient-to-b from-black to-purple-950">
+    <main className="flex items-center justify-center min-h-screen bg-gray-900">
       <div className="border hover:border-slate-900 rounded">
         <WalletMultiButton />
       </div>
