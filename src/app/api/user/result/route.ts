@@ -1,6 +1,6 @@
+import { connection, PLATFORM_FEE_PERCENT } from "@/lib/constants";
 import { prisma } from "@/lib/db";
 import {
-  Connection,
   Keypair,
   LAMPORTS_PER_SOL,
   PublicKey,
@@ -8,15 +8,12 @@ import {
   Transaction,
 } from "@solana/web3.js";
 import { NextRequest, NextResponse } from "next/server";
-import bs58 from "bs58";
 import nacl from "tweetnacl";
+import bs58 from "bs58";
 
 const PLATFORM_WALLET = Keypair.fromSecretKey(
   bs58.decode(process.env.PRIVATE_KEY!)
 );
-const connection = new Connection("https://api.devnet.solana.com");
-
-const PLATFORM_FEE_PERCENT = 0.05;
 
 export async function POST(req: NextRequest) {
   try {
