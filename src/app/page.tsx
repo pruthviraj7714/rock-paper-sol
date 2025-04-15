@@ -22,7 +22,9 @@ export default function LandingPage() {
               Leaderboard
             </Link>
           </nav>
-          <Button className="bg-yellow-500 hover:bg-yellow-600">Connect Wallet</Button>
+          <Link href={'/connect-wallet'}>
+            <Button className="bg-yellow-500 hover:bg-yellow-600 cursor-pointer">Connect Wallet</Button>
+          </Link>
         </div>
       </header>
 
